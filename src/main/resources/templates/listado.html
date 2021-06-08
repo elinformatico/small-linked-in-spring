@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+	<meta charset="ISO-8859-1">
+	<title th:text="${title}"></title>
+</head>
+	<body>
+		<ol>
+			<li th:each="tmpVacante: ${vacantes}" th:text="${tmpVacante}"></li>
+		</ol>
+	</body>
+</html>
