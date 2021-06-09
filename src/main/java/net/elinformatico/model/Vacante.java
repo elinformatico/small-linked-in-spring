@@ -12,10 +12,11 @@ public class Vacante {
 	private Boolean status;
 	private Double salario;
 	private Boolean destacado;
+	private String logo;
 	
 	public Vacante() { }
 	
-	public Vacante(String nombre, String descripcion, Date fecha, Boolean status, Double salario, Boolean destacado) {
+	public Vacante(String nombre, String descripcion, Date fecha, Boolean status, Double salario, Boolean destacado, String logo) {
 		super();
 		this.id = ThreadLocalRandom.current().nextInt(1, 100 + 1);
 		this.nombre = nombre;
@@ -24,9 +25,10 @@ public class Vacante {
 		this.status = status;
 		this.salario = salario;
 		this.destacado = destacado;
+		this.logo = (logo != null) ? logo : "no-logo.png";
 	}
 	
-	public Vacante(Integer id, String nombre, String descripcion, Date fecha, Boolean status, Double salario, Boolean destacado) {
+	public Vacante(Integer id, String nombre, String descripcion, Date fecha, Boolean status, Double salario, Boolean destacado, String logo) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -35,6 +37,7 @@ public class Vacante {
 		this.status = status;
 		this.salario = salario;
 		this.destacado = destacado;
+		this.logo = (logo != null) ? logo : "no-logo.png";
 	}
 	
 	public Integer getId() {
@@ -78,6 +81,14 @@ public class Vacante {
 	}
 	public void setDestacado(Boolean destacado) {
 		this.destacado = destacado;
+	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
 	}
 
 	@Override

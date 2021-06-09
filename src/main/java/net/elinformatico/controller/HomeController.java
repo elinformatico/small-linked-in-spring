@@ -57,17 +57,17 @@ public class HomeController {
 		
 		try {
 			vacantes.add(new Vacante(1, "Ingeniero en Sistemas", 
-					"Encargado de Sistemas", formato.parse("08-06-2021"), true, 15000.0, true));
+					"Encargado de Sistemas", formato.parse("08-06-2021"), true, 15000.0, true, null));
 			vacantes.add(new Vacante(2, "Java Developer", 
-					"Desarrollador con Experiencia en Java", formato.parse("08-06-2021"), true, 20000.0, false));
+					"Desarrollador con Experiencia en Java", formato.parse("08-06-2021"), true, 20000.0, false, "oracle.png"));
 			vacantes.add(new Vacante(3, "Software Enginner", 
-					"Conocer muchas areas de Desarrollo y Tecnologias", formato.parse("08-06-2021"), false, 25000.0, false));
+					"Conocer muchas areas de Desarrollo y Tecnologias", formato.parse("08-06-2021"), false, 25000.0, false, "hcl.png"));
 			vacantes.add(new Vacante(4, "Full Stack Developer", 
-					"Dominar la mayoria de las tecnologias", formato.parse("08-06-2021"), false, 40000.0, true));
+					"Dominar la mayoria de las tecnologias", formato.parse("08-06-2021"), false, 40000.0, true, "google.png"));
 			vacantes.add(new Vacante(5, "DBA Administrator", 
-					"Conocer SQL y NO-SQL", formato.parse("08-06-2021"), true, 20000.0, true));
+					"Conocer SQL y NO-SQL", formato.parse("08-06-2021"), true, 20000.0, true, null));
 			vacantes.add(new Vacante(6, "Front-End Developer", 
-					"Conocer ReactJS y Angular", formato.parse("08-06-2021"), true, 25000.0, false));
+					"Conocer ReactJS y Angular", formato.parse("08-06-2021"), true, 25000.0, false, "hcl.png"));
 		
 		} catch (ParseException e) {
 			System.out.println("Error en Fecha: " + e.getMessage());

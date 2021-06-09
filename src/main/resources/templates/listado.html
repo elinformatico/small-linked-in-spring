@@ -6,6 +6,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 	<body>
+		<img th:src="@{/images/spring-logo.png}" style="width: 100px;">
 		<h1>Vacantes Disponibles</h1>
 		<!-- <ol>
 			<li th:each="tmpVacante: ${vacantes}" th:text="'Vacante: ' + ${tmpVacante.nombre}"></li>
@@ -14,6 +15,7 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
+				   <th scope="col">Logo</th>
 				   <th scope="col">ID</th>
 				   <th scope="col">Nombre</th>
 				   <th scope="col">Descripcion</th>
@@ -23,7 +25,10 @@
 				   <th scope="col">Destacado</th>
 				</tr>
 				<tr th:each="tmpVacante : ${vacantes}">
-					<th scope="row" th:text="${tmpVacante.id}"></th>
+				    <th>
+						<img th:src="@{/images/companies/{img}  ( img=${tmpVacante.logo} ) }" style="width: 50px;">		    	
+				    </th>
+					<td scope="row" th:text="${tmpVacante.id}"></td>
 					<td scope="row" th:text="${tmpVacante.nombre}"></td>
 					<td scope="row" th:text="${tmpVacante.descripcion}"></td>
 					<td scope="row" >
