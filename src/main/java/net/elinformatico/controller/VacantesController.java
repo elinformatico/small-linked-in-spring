@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,6 +52,21 @@ public class VacantesController {
 	){
 		model.addAttribute("id", idVacante);
 		return "vacantes/mensaje-eliminar";
+	}
+	
+	@PostMapping("/registrar")
+	public String registrarVacante(
+			@RequestParam(name = "nombre", required = true) String nombre,
+			@RequestParam(name = "edad", required = true) int edad,
+			Model model
+	){
+		System.out.println("Nombre: " + nombre);
+		System.out.println("Edad: " + edad);
+		
+		model.addAttribute("nombre", nombre);
+		model.addAttribute("edad", edad);
+		
+		return "vacantes/registrar-vacante";
 	}
 	
 	private List<Vacante> getVacantes() {
