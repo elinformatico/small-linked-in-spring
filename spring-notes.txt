@@ -1,0 +1,80 @@
+Listado de Path Registrados
+
+Controller "HomeController"
+	/        -> home.html
+	
+Controller "VacantesController"
+	/vacantes/list			--> listado.html
+	/vacantes/view/{id}     --> detalle.html
+	
+Controller "CategoriasController"
+	/categorias/index
+	/categorias/create
+	/categorias/save
+
+Motor de Plantillas para Spring, Spring Boot
+https://www.thymeleaf.org/
+-----------------------------------------------------
+<html xmlns:th="http://www.thymeleaf.org/">
+
+Ejemplo de Expresiones aprendidas
+1) Imprimir un texto directo
+   [[${nameModel}]
+
+2) Imprimir texto en cualquier elemento de HTML
+  	th:text="${model}"
+
+3) Accediendo a una propiedad de un Objecto del un Modelo.
+   th:text="${objectModel.attribute}"
+
+4) Concatenar cadenas con un valor del modelo
+	th:text="'Texto Concatenado' + ${model}"
+
+5) Se puede usar tanto para elementos de HTML href y para agregar hoja de estilos
+	th:href="@{/path/view/{id} (id = ${objectModel.attribute}) }" -->  /path/view/2
+
+	Explicacion: se define una variable {id} y se asigna un valor usando "(id = ${objectModel.attribute})" 
+	lo cual se le asignara el valor a {id}
+
+6) Se puede usar agregar imagenes o archivos javaScript
+    th:src="@{/images/companies/{img} ( img = ${tmpVacante.logo}) }" --> /images/companies/logo.png
+
+7) Iterables (Muy similar a Java)
+    th:each="tempVariable : ${objectoList}"
+      th:text="${tempVariable}"
+
+8) Condicionales (ambas expresiones deben llevar la misma evaluacion boleana)
+     th:if="${tmpVacante.destacado == true}"
+     th:unless="${tmpVacante.destacado == true}"
+
+Notas: Para archivos estaticoos tales como imagenes, .js & .css se debe hacer referencia al 
+       "ContextPath" que es donde esta el ROOT de nuestra aplicacion, en la estructura del 
+       proyecto de Spring se encuentra en:
+       
+       --> /src/main/resources/static
+                             --> css
+                             --> js
+                             --> images
+        ContexPath -->  "/images" 
+                        "js"
+                        "css"
+        Ejemplos:  
+        	<img th:src="@{/images/companies/logo.png"></img>
+        	<script th:src="@{/js/index.js"></script>
+        	<link th:href="@{/css/style.css}" rel="stylesheet">
+
+ANOTACIONES APRENDIDAS
+--------------------------------------------------------
+@Controller --> (Definir una clase como Controlador)
+@RestController --> (Definir una clase como Rest-Controller)
+@GetMapping("/path") --> (Definir a un metodo un Path de tipo GET)
+@PostMapping("path") --> (Definir a un metodo un Path de tipo GET)
+@RequestMapping(path = "/path", method = RequestMethod.GET) --> (Definir a un metodo un Path de tipo POST)
+
+@PathVariable("id") --> Para extraer un valor de la URL solamente, ej (/vacantes/ver/{id})
+
+Obtener los parametros declarados en la URL, ej:
+   http://localhost/vacantes/index?env=true
+
+@RequestParam("id")
+@RequestParam(name="id", required=false)

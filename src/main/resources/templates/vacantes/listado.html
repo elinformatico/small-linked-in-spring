@@ -43,8 +43,8 @@
 					<td scope="row" th:text="${tmpVacante.fecha}"></td>
 					<td scope="row" th:text="${tmpVacante.status == true ? 'Activo' : 'Expirado'}"></td>
 					<td>
-						<span th:if="${tmpVacante.destacado == true}"class="badge bg-success">Destacado</span>
-						<span th:unless="${tmpVacante.destacado == true}"class="badge bg-danger">N/A</span>
+						<span th:if="${tmpVacante.destacado == true}" class="badge bg-success">Destacado</span>
+						<span th:unless="${tmpVacante.destacado == true}" class="badge bg-danger">N/A</span>
 					</td>
 				</tr>
 			</thead>
