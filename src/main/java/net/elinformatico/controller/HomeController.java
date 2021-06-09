@@ -9,6 +9,8 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import net.elinformatico.model.Vacante;
 
@@ -31,7 +33,8 @@ public class HomeController {
 		return "mostrar-vacante";
 	}
 	
-	@GetMapping("/listado-empleos")
+	// @GetMapping("/listado-empleos")
+	@RequestMapping(path = "listado-empleos", method = RequestMethod.GET)
 	public String getListado(Model model) {
 		
 		//listadoEmpleos.add("DBA Administrator");
@@ -68,6 +71,18 @@ public class HomeController {
 					"Conocer SQL y NO-SQL", formato.parse("08-06-2021"), true, 20000.0, true, null));
 			vacantes.add(new Vacante(6, "Front-End Developer", 
 					"Conocer ReactJS y Angular", formato.parse("08-06-2021"), true, 25000.0, false, "hcl.png"));
+			
+			Vacante v6 = new Vacante();
+			v6.setId(6);
+			v6.setNombre("DevOps");
+			v6.setDescripcion("DevOps Engineer with experience in CI/CD");
+			v6.setFecha(formato.parse("08-06-2021"));
+			v6.setSalario(35000.0);
+			v6.setStatus(true);
+			v6.setDestacado(true);
+			v6.setLogo("hcl.png");
+			
+			vacantes.add(v6);
 		
 		} catch (ParseException e) {
 			System.out.println("Error en Fecha: " + e.getMessage());
