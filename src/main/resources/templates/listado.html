@@ -20,14 +20,23 @@
 				   <th scope="col">Salario</th>
 				   <th scope="col">Fecha Publicacion</th>
 				   <th scope="col">Status</th>
+				   <th scope="col">Destacado</th>
 				</tr>
 				<tr th:each="tmpVacante : ${vacantes}">
 					<th scope="row" th:text="${tmpVacante.id}"></th>
 					<td scope="row" th:text="${tmpVacante.nombre}"></td>
 					<td scope="row" th:text="${tmpVacante.descripcion}"></td>
-					<td scope="row" th:text="${tmpVacante.salario}"></td>
+					<td scope="row" >
+						<span th:text="${tmpVacante.salario}"></span>
+						<span th:if="${tmpVacante.salario >= 20000}">Sueldo Alto</span>
+						<span th:unless="${tmpVacante.salario >= 20000}">Sueldo Bajo</span>
+					</td>
 					<td scope="row" th:text="${tmpVacante.fecha}"></td>
-					<td scope="row" th:text="${tmpVacante.status}"></td>
+					<td scope="row" th:text="${tmpVacante.status == true ? 'Activo' : 'Expirado'}"></td>
+					<td>
+						<span th:if="${tmpVacante.destacado == true}"class="badge bg-success">Destacado</span>
+						<span th:unless="${tmpVacante.destacado == true}"class="badge bg-danger">N/A</span>
+					</td>
 				</tr>
 			</thead>
 		</table>

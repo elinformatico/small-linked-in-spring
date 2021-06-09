@@ -11,14 +11,11 @@ public class Vacante {
 	private Date fecha;
 	private Boolean status;
 	private Double salario;
-	
-	public Integer getId() {
-		return id;
-	}
+	private Boolean destacado;
 	
 	public Vacante() { }
 	
-	public Vacante(String nombre, String descripcion, Date fecha, Boolean status, Double salario) {
+	public Vacante(String nombre, String descripcion, Date fecha, Boolean status, Double salario, Boolean destacado) {
 		super();
 		this.id = ThreadLocalRandom.current().nextInt(1, 100 + 1);
 		this.nombre = nombre;
@@ -26,9 +23,10 @@ public class Vacante {
 		this.fecha = fecha;
 		this.status = status;
 		this.salario = salario;
+		this.destacado = destacado;
 	}
 	
-	public Vacante(Integer id, String nombre, String descripcion, Date fecha, Boolean status, Double salario) {
+	public Vacante(Integer id, String nombre, String descripcion, Date fecha, Boolean status, Double salario, Boolean destacado) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -36,9 +34,12 @@ public class Vacante {
 		this.fecha = fecha;
 		this.status = status;
 		this.salario = salario;
+		this.destacado = destacado;
 	}
 	
-	
+	public Integer getId() {
+		return id;
+	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -72,10 +73,17 @@ public class Vacante {
 	public void setSalario(Double salario) {
 		this.salario = salario;
 	}
-	
+	public Boolean getDestacado() {
+		return destacado;
+	}
+	public void setDestacado(Boolean destacado) {
+		this.destacado = destacado;
+	}
+
 	@Override
 	public String toString() {
 		return "Vacante [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha
-				+ ", status=" + status + ", salario=" + salario + "]";
+				+ ", status=" + status + ", salario=" + salario + ", destacado=" + destacado + "]";
 	}
+	
 }

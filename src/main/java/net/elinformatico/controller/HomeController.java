@@ -57,17 +57,17 @@ public class HomeController {
 		
 		try {
 			vacantes.add(new Vacante(1, "Ingeniero en Sistemas", 
-					"Encargado de Sistemas", formato.parse("08-06-2021"), true, 15000.0));
+					"Encargado de Sistemas", formato.parse("08-06-2021"), true, 15000.0, true));
 			vacantes.add(new Vacante(2, "Java Developer", 
-					"Desarrollador con Experiencia en Java", formato.parse("08-06-2021"), true, 20000.0));
+					"Desarrollador con Experiencia en Java", formato.parse("08-06-2021"), true, 20000.0, false));
 			vacantes.add(new Vacante(3, "Software Enginner", 
-					"Conocer muchas areas de Desarrollo y Tecnologias", formato.parse("08-06-2021"), true, 25000.0));
+					"Conocer muchas areas de Desarrollo y Tecnologias", formato.parse("08-06-2021"), false, 25000.0, false));
 			vacantes.add(new Vacante(4, "Full Stack Developer", 
-					"Dominar la mayoria de las tecnologias", formato.parse("08-06-2021"), true, 40000.0));
+					"Dominar la mayoria de las tecnologias", formato.parse("08-06-2021"), false, 40000.0, true));
 			vacantes.add(new Vacante(5, "DBA Administrator", 
-					"Conocer SQL y NO-SQL", formato.parse("08-06-2021"), true, 20000.0));
+					"Conocer SQL y NO-SQL", formato.parse("08-06-2021"), true, 20000.0, true));
 			vacantes.add(new Vacante(6, "Front-End Developer", 
-					"Conocer ReactJS y Angular", formato.parse("08-06-2021"), true, 25000.0));
+					"Conocer ReactJS y Angular", formato.parse("08-06-2021"), true, 25000.0, false));
 		
 		} catch (ParseException e) {
 			System.out.println("Error en Fecha: " + e.getMessage());
