@@ -29,7 +29,11 @@
 						<img th:src="@{/images/companies/{img}  ( img=${tmpVacante.logo} ) }" style="width: 50px;">		    	
 				    </th>
 					<td scope="row" th:text="${tmpVacante.id}"></td>
-					<td scope="row" th:text="${tmpVacante.nombre}"></td>
+					<td>
+						<a th:href="@{/vacantes/view/{id} ( id=${tmpVacante.id} )}">
+							<span th:text="${tmpVacante.nombre}"></span>
+						</a>
+					</td>
 					<td scope="row" th:text="${tmpVacante.descripcion}"></td>
 					<td scope="row" >
 						<span th:text="${tmpVacante.salario}"></span>

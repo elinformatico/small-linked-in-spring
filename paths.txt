@@ -1,0 +1,13 @@
+Listado de Path Registrados
+
+Controller "HomeController"
+	/        -> home.html
+	
+Controller "VacantesController"
+	/vacantes/list			--> listado.html
+	/vacantes/view/{id}     --> detalle.html
+	
+Controller "CategoriasController"
+	/categorias/index
+	/categorias/create
+	/categorias/save
