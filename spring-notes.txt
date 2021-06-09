@@ -63,6 +63,9 @@ Notas: Para archivos estaticoos tales como imagenes, .js & .css se debe hacer re
         	<script th:src="@{/js/index.js"></script>
         	<link th:href="@{/css/style.css}" rel="stylesheet">
 
+9) Leer Parametros HTTP de la URL, ejemplo --> /vacantes/delete?id=12
+   th:href="@{/vacantes/delete( id = ${tmpVacante.id })}"
+
 ANOTACIONES APRENDIDAS
 --------------------------------------------------------
 @Controller --> (Definir una clase como Controlador)

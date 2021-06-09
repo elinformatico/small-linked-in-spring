@@ -44,6 +44,15 @@ public class VacantesController {
 		return "vacantes/listado";
 	}
 	
+	@GetMapping("/delete")
+	public String eliminarVacante(
+			@RequestParam("id") int idVacante,
+			Model model
+	){
+		model.addAttribute("id", idVacante);
+		return "vacantes/mensaje-eliminar";
+	}
+	
 	private List<Vacante> getVacantes() {
 		
 		List<Vacante> vacantes = new LinkedList<Vacante>();
