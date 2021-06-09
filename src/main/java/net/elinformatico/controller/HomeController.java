@@ -38,7 +38,7 @@ public class HomeController {
 	public String getListado(Model model) {
 		
 		//listadoEmpleos.add("DBA Administrator");
-		model.addAttribute("title", "Listado de Vacantes");
+		model.addAttribute("title", "Listado @de Vacantes");
 		model.addAttribute("vacantes", getVacantes());
 		
 		return "listado";
