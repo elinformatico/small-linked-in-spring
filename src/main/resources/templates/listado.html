@@ -3,10 +3,34 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title th:text="${title}"></title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 	<body>
-		<ol>
-			<li th:each="tmpVacante: ${vacantes}" th:text="${tmpVacante}"></li>
-		</ol>
+		<h1>Vacantes Disponibles</h1>
+		<!-- <ol>
+			<li th:each="tmpVacante: ${vacantes}" th:text="'Vacante: ' + ${tmpVacante.nombre}"></li>
+		</ol> -->
+		
+		<table class="table table-hover">
+			<thead>
+				<tr>
+				   <th scope="col">ID</th>
+				   <th scope="col">Nombre</th>
+				   <th scope="col">Descripcion</th>
+				   <th scope="col">Salario</th>
+				   <th scope="col">Fecha Publicacion</th>
+				   <th scope="col">Status</th>
+				</tr>
+				<tr th:each="tmpVacante : ${vacantes}">
+					<th scope="row" th:text="${tmpVacante.id}"></th>
+					<td scope="row" th:text="${tmpVacante.nombre}"></td>
+					<td scope="row" th:text="${tmpVacante.descripcion}"></td>
+					<td scope="row" th:text="${tmpVacante.salario}"></td>
+					<td scope="row" th:text="${tmpVacante.fecha}"></td>
+					<td scope="row" th:text="${tmpVacante.status}"></td>
+				</tr>
+			</thead>
+		</table>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 	</body>
 </html>
