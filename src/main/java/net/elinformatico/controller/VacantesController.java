@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import net.elinformatico.model.Vacante;
 
@@ -17,7 +18,8 @@ import net.elinformatico.model.Vacante;
 @RequestMapping(path = "/vacantes")
 public class VacantesController {
 
-	@GetMapping("/view/{id}")
+	// @GetMapping("/view/{id}")
+	@RequestMapping(path = {"/view/{id}", "/ver/{id}", "/consultar/{id}"}, method = RequestMethod.GET)
 	public String mostrarVacante(@PathVariable("id") int idVacante, Model model) 
 	{	
 		model.addAttribute("title", "Mostrar Vacante # " +  idVacante);
@@ -25,7 +27,8 @@ public class VacantesController {
 		return "vacantes/detalle";
 	}
 	
-	@GetMapping("/list")
+	//@GetMapping("/list")
+	@RequestMapping(path = {"/list", "/lista", "/listado"}, method = RequestMethod.GET)
 	public String getListado(Model model) {
 		
 		//listadoEmpleos.add("DBA Administrator");
@@ -70,5 +73,13 @@ public class VacantesController {
 			System.out.println("Error en Fecha: " + e.getMessage());
 		}
 		return vacantes;
+	}
+	
+	private Vacante buscarVacante(int idVacante, List<Vacante> vacantes) {
+		
+		// TODO Buscar informacion en la Base de Datos
+		
+		Vacante vacanteFound = new Vacante();
+		return vacanteFound;
 	}
 }
