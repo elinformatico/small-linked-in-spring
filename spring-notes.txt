@@ -66,6 +66,9 @@ Notas: Para archivos estaticoos tales como imagenes, .js & .css se debe hacer re
 9) Leer Parametros HTTP de la URL, ejemplo --> /vacantes/delete?id=12
    th:href="@{/vacantes/delete( id = ${tmpVacante.id })}"
 
+10) Sintaxis para definir el action de un formulario HTML
+   <form th:action="@{/categorias/save}"> </form>
+
 ANOTACIONES APRENDIDAS
 --------------------------------------------------------
 @Controller --> (Definir una clase como Controlador)
@@ -73,11 +76,16 @@ ANOTACIONES APRENDIDAS
 @GetMapping("/path") --> (Definir a un metodo un Path de tipo GET)
 @PostMapping("path") --> (Definir a un metodo un Path de tipo GET)
 @RequestMapping(path = "/path", method = RequestMethod.GET) --> (Definir a un metodo un Path de tipo POST)
-
 @PathVariable("id") --> Para extraer un valor de la URL solamente, ej (/vacantes/ver/{id})
 
 Obtener los parametros declarados en la URL, ej:
    http://localhost/vacantes/index?env=true
+		@RequestParam("id")
+		@RequestParam(name="id", required=false)
 
-@RequestParam("id")
-@RequestParam(name="id", required=false)
+   @Service  --> Esta anotacion va en la clase que Implementa la Interfaz y no en la interfaz
+   @Autowired --> Inyectar la dependencia de nuestra Implementacion de la Interfaz
+   	Nota: Lo mas comun es Inyectar las clases de servicio en los Controladores, de esta forma tendremos toda la logica de nuestra aplicacion en la clases de servicio y en los controladores solo dejaremos la logica de procesamiento de las peticiones HTTP
+
+
+
