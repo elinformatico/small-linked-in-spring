@@ -5,8 +5,11 @@ import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import net.elinformatico.model.Vacante;
 
+@Service
 public class VacanteServiceImp implements IVacantes {
 
 	private List<Vacante> vacantes = null;
@@ -47,8 +50,16 @@ public class VacanteServiceImp implements IVacantes {
 		}
 	}
 	
+	@Override
 	public List<Vacante> buscarTodas() {
 		return vacantes;
+	}
+
+	@Override
+	public Vacante buscarVacante(int idVacante, List<Vacante> vacantes) {
+		
+		// TODO Consultar la Base de Datos
+		return null;
 	}
 
 }
